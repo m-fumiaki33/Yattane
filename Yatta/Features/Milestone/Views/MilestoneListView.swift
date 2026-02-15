@@ -66,15 +66,6 @@ struct MilestoneListView: View {
             .disabled(viewModel.selectedChild == nil)
           }
 
-          if viewModel.selectedChild != nil {
-            ToolbarItem(placement: .bottomBar) {
-              Button(action: { showingDeleteAllAlert = true }) {
-                Image(systemName: "trash")
-                  .foregroundColor(.red)
-              }
-              .disabled(viewModel.milestones.isEmpty)
-            }
-          }
         }
         .sheet(isPresented: $showingAddMilestone) {
           if let child = viewModel.selectedChild {
@@ -128,6 +119,7 @@ struct MilestoneListView: View {
       if viewModel.selectedChild != nil {
         ForEach(viewModel.milestones) { milestone in
           MilestoneRow(milestone: milestone)
+            .softCard()
             .listRowSeparator(.hidden)
             .listRowBackground(Color.clear)
         }
@@ -143,6 +135,8 @@ struct MilestoneListView: View {
         }
       }
     }
+    .scrollContentBackground(.hidden)
+    .softBackground()
     .alert(
       "\(viewModel.selectedChild?.name ?? "子ども")を削除しますか？", isPresented: $showingDeleteChildAlert
     ) {

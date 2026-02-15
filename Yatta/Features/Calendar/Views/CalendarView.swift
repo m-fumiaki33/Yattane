@@ -44,7 +44,7 @@ struct CalendarView: UIViewRepresentable {
       let found = milestones.contains { Calendar.current.isDate($0.date!, inSameDayAs: date) }
 
       if found {
-        return .default(color: .systemOrange, size: .small)
+        return .default(color: UIColor(Color.softTheme.primaryAction), size: .small)
       }
       return nil
     }
@@ -73,6 +73,10 @@ struct CalendarTabWrapper: View {
         if selectedChild != nil {
           CalendarView(milestones: milestones, selectedDate: $selectedDate)
             .padding()
+            .background(Color.softTheme.cardBackground)
+            .cornerRadius(16)
+            .padding()
+            .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
 
           // Show milestones for selected date
           List {
@@ -80,9 +84,13 @@ struct CalendarTabWrapper: View {
               milestones.filter { Calendar.current.isDate($0.date!, inSameDayAs: selectedDate) }
             ) { milestone in
               MilestoneRow(milestone: milestone)
+                .softCard()
+                .listRowSeparator(.hidden)
+                .listRowBackground(Color.clear)
             }
           }
           .listStyle(.plain)
+          .scrollContentBackground(.hidden)
         } else {
           ContentUnavailableView {
             Label("子どもを登録してください", systemImage: "person.crop.circle.badge.plus")
@@ -91,6 +99,7 @@ struct CalendarTabWrapper: View {
           }
         }
       }
+      .softBackground()
       .navigationTitle(selectedChild?.name ?? "カレンダー")
       .onAppear {
         fetchData()

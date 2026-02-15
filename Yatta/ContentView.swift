@@ -14,6 +14,7 @@ struct ContentView: View {
           Label("カレンダー", systemImage: "calendar")
         }
     }
+    .accentColor(Color.softTheme.primaryAction)
   }
 }
 

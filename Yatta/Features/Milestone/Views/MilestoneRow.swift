@@ -10,33 +10,35 @@ struct MilestoneRow: View {
           .resizable()
           .scaledToFill()
           .frame(width: 60, height: 60)
-          .clipShape(RoundedRectangle(cornerRadius: 12))
-          .shadow(radius: 2)
+          .clipShape(RoundedRectangle(cornerRadius: 16))
+          .shadow(color: Color.black.opacity(0.1), radius: 2, x: 0, y: 2)
       } else {
-        RoundedRectangle(cornerRadius: 12)
-          .fill(Color.gray.opacity(0.2))
-          .frame(width: 60, height: 60)
-          .overlay(
-            Image(systemName: "photo")
-              .foregroundColor(.gray)
-          )
+        ZStack {
+          RoundedRectangle(cornerRadius: 16)
+            .fill(Color.softTheme.babyBlue.opacity(0.3))
+            .frame(width: 60, height: 60)
+
+          Image(systemName: "photo")
+            .foregroundColor(Color.softTheme.babyBlue)
+            .font(.title2)
+        }
       }
 
       VStack(alignment: .leading, spacing: 4) {
         Text(milestone.title ?? "タイトルなし")
-          .font(.headline)
-          .foregroundColor(.primary)
+          .font(.softHeadline)
+          .foregroundColor(Color.softTheme.textPrimary)
 
         if let date = milestone.date {
           VStack(alignment: .leading, spacing: 2) {
             Text(date, format: .dateTime.year().month().day().locale(Locale(identifier: "ja_JP")))
-              .font(.subheadline)
-              .foregroundColor(.secondary)
+              .font(.softCaption)
+              .foregroundColor(Color.softTheme.textSecondary)
 
             if let age = ageString {
               Text(age)
-                .font(.caption)
-                .foregroundColor(.secondary)
+                .font(.softCaption)
+                .foregroundColor(Color.softTheme.primaryAction)
                 .padding(.top, 2)
             }
           }
@@ -50,6 +52,7 @@ struct MilestoneRow: View {
   }
 
   private var ageString: String? {
+    // ... existing logic ...
     guard let date = milestone.date,
       let birthday = milestone.child?.birthday
     else { return nil }
