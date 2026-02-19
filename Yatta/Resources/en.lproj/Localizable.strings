@@ -1,0 +1,60 @@
+/* 
+  Localizable.strings (English)
+*/
+
+// Common
+"cancel" = "Cancel";
+"save" = "Save";
+"menu" = "Menu";
+"settings" = "Settings";
+"delete" = "Delete";
+"edit" = "Edit";
+"done" = "Done";
+
+// YattaApp
+"app_title" = "Yatta!";
+
+// Tab Bar
+"tab_record" = "Record";
+"tab_calendar" = "Calendar";
+
+// Milestone List
+"milestone_record_button" = "Record";
+"milestone_child_add" = "Add Child";
+"milestone_child_edit" = "Edit %@" ;
+"milestone_child_delete" = "Delete %@";
+"milestone_empty_title" = "Please register a child";
+"milestone_empty_description" = "You can add or select a child\nfrom the top-left menu";
+"milestone_delete_child_title" = "Delete %@?";
+"milestone_delete_child_message" = "This action cannot be undone. All records for this child will be deleted.";
+"milestone_delete_child_completed" = "Deleted";
+"milestone_delete_all_title" = "Delete all data?";
+"milestone_delete_record_title" = "Delete this record?";
+
+// Add/Edit Milestone
+"milestone_add_title" = "New Record";
+"milestone_edit_title" = "Edit Record";
+"milestone_title_label" = "Title";
+"milestone_date_label" = "Date";
+"milestone_photo_label" = "Photo";
+"milestone_note_label" = "Note";
+"milestone_title_placeholder" = "e.g., First Crawl";
+"milestone_note_placeholder" = "Enter details...";
+
+// Child Profile
+"child_register_title" = "Register Child";
+"child_edit_title" = "Edit Profile";
+"child_profile_header" = "Profile";
+"child_name_label" = "Name";
+"child_birthday_label" = "Birthday";
+"child_gender_label" = "Gender";
+"gender_unselected" = "Unselected";
+"gender_boy" = "Boy";
+"gender_girl" = "Girl";
+"gender_other" = "Other";
+
+// Language
+"language_settings_title" = "Language";
+"language_japanese" = "Japanese";
+"language_english" = "English";
+"language_chinese" = "adminChinese"; // Simplified

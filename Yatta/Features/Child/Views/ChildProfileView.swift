@@ -13,28 +13,29 @@ struct ChildProfileView: View {
     NavigationStack {
       Form {
         Section {
-          TextField("名前", text: $viewModel.name)
-          DatePicker("誕生日", selection: $viewModel.birthday, displayedComponents: .date)
-          Picker("性別", selection: $viewModel.gender) {
-            Text("未選択").tag(Int16(0))
-            Text("男の子").tag(Int16(1))
-            Text("女の子").tag(Int16(2))
-            Text("その他").tag(Int16(3))
+          TextField("child_name_label", text: $viewModel.name)
+          DatePicker(
+            "child_birthday_label", selection: $viewModel.birthday, displayedComponents: .date)
+          Picker("child_gender_label", selection: $viewModel.gender) {
+            Text("gender_unselected").tag(Int16(0))
+            Text("gender_boy").tag(Int16(1))
+            Text("gender_girl").tag(Int16(2))
+            Text("gender_other").tag(Int16(3))
           }
         } header: {
-          Text("プロフィール")
+          Text("child_profile_header")
         }
       }
-      .navigationTitle(viewModel.isNew ? "子どもの登録" : "プロフィールの編集")
+      .navigationTitle(viewModel.isNew ? "child_register_title" : "child_edit_title")
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem(placement: .cancellationAction) {
-          Button("キャンセル") {
+          Button("cancel") {
             dismiss()
           }
         }
         ToolbarItem(placement: .confirmationAction) {
-          Button("保存") {
+          Button("save") {
             if viewModel.save() {
               dismiss()
             }

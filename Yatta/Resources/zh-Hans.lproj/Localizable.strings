@@ -1,0 +1,60 @@
+/* 
+  Localizable.strings (Chinese - Simplified)
+*/
+
+// Common
+"cancel" = "取消";
+"save" = "保存";
+"menu" = "菜单";
+"settings" = "设置";
+"delete" = "删除";
+"edit" = "编辑";
+"done" = "完成";
+
+// YattaApp
+"app_title" = "太棒了！"; // "Yatta!"
+
+// Tab Bar
+"tab_record" = "记录";
+"tab_calendar" = "日历";
+
+// Milestone List
+"milestone_record_button" = "记录";
+"milestone_child_add" = "添加孩子";
+"milestone_child_edit" = "编辑 %@";
+"milestone_child_delete" = "删除 %@";
+"milestone_empty_title" = "请注册孩子";
+"milestone_empty_description" = "您可以从左上角的菜单中\n添加或选择孩子";
+"milestone_delete_child_title" = "确定删除 %@ 吗？";
+"milestone_delete_child_message" = "此操作无法撤销。该孩子的所有记录也将被删除。";
+"milestone_delete_child_completed" = "已删除";
+"milestone_delete_all_title" = "确定删除所有数据吗？";
+"milestone_delete_record_title" = "确定删除此记录吗？";
+
+// Add/Edit Milestone
+"milestone_add_title" = "添加记录";
+"milestone_edit_title" = "编辑记录";
+"milestone_title_label" = "标题";
+"milestone_date_label" = "日期";
+"milestone_photo_label" = "照片";
+"milestone_note_label" = "备注";
+"milestone_title_placeholder" = "例如：第一次爬行";
+"milestone_note_placeholder" = "输入详情...";
+
+// Child Profile
+"child_register_title" = "注册孩子";
+"child_edit_title" = "编辑资料";
+"child_profile_header" = "个人资料";
+"child_name_label" = "姓名";
+"child_birthday_label" = "生日";
+"child_gender_label" = "性别";
+"gender_unselected" = "未选择";
+"gender_boy" = "男孩";
+"gender_girl" = "女孩";
+"gender_other" = "其他";
+
+// Language
+"language_settings_title" = "语言";
+"language_japanese" = "日语";
+"language_english" = "英语";
+"language_chinese" = "中文";

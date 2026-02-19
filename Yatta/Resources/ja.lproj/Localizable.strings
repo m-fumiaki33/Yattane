@@ -1,0 +1,60 @@
+/* 
+  Localizable.strings (Japanese)
+*/
+
+// Common
+"cancel" = "キャンセル";
+"save" = "保存";
+"menu" = "メニュー";
+"settings" = "設定";
+"delete" = "削除";
+"edit" = "編集";
+"done" = "完了";
+
+// YattaApp
+"app_title" = "やったね！";
+
+// Tab Bar
+"tab_record" = "記録";
+"tab_calendar" = "カレンダー";
+
+// Milestone List
+"milestone_record_button" = "記録する";
+"milestone_child_add" = "子どもを追加";
+"milestone_child_edit" = "%@を編集";
+"milestone_child_delete" = "%@を削除";
+"milestone_empty_title" = "子どもを登録してください";
+"milestone_empty_description" = "左上のメニューから\n子どもを追加・選択できます";
+"milestone_delete_child_title" = "%@を削除しますか？";
+"milestone_delete_child_message" = "この操作は取り消せません。登録されている記録も全て削除されます。";
+"milestone_delete_child_completed" = "削除しました";
+"milestone_delete_all_title" = "全てのデータを削除しますか？";
+"milestone_delete_record_title" = "この記録を削除しますか？";
+
+// Add/Edit Milestone
+"milestone_add_title" = "記録を追加";
+"milestone_edit_title" = "記録を編集";
+"milestone_title_label" = "タイトル";
+"milestone_date_label" = "日付";
+"milestone_photo_label" = "写真";
+"milestone_note_label" = "メモ";
+"milestone_title_placeholder" = "例：初めてのハイハイ";
+"milestone_note_placeholder" = "詳細を入力...";
+
+// Child Profile
+"child_register_title" = "子どもの登録";
+"child_edit_title" = "プロフィールの編集";
+"child_profile_header" = "プロフィール";
+"child_name_label" = "名前";
+"child_birthday_label" = "誕生日";
+"child_gender_label" = "性別";
+"gender_unselected" = "未選択";
+"gender_boy" = "男の子";
+"gender_girl" = "女の子";
+"gender_other" = "その他";
+
+// Language
+"language_settings_title" = "言語";
+"language_japanese" = "日本語";
+"language_english" = "英語";
+"language_chinese" = "中国語";

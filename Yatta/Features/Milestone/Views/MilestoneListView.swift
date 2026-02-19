@@ -15,7 +15,7 @@ struct MilestoneListView: View {
     NavigationStack {
       mainContent
         .listStyle(.plain)
-        .navigationTitle(viewModel.selectedChild?.name ?? "やったね！")
+        .navigationTitle(viewModel.selectedChild?.name ?? String(localized: "app_title"))
         .toolbar {
           ToolbarItem(placement: .topBarLeading) {
             Menu {
@@ -27,23 +27,31 @@ struct MilestoneListView: View {
               }
               Divider()
               if let selected = viewModel.selectedChild {
-                Button("\(selected.name ?? "")を編集", systemImage: "pencil") {
+                Button(
+                  String(
+                    format: NSLocalizedString("milestone_child_edit", comment: ""),
+                    selected.name ?? ""), systemImage: "pencil"
+                ) {
                   showingChildProfile = true
                 }
-                Button("\(selected.name ?? "子ども")を削除", systemImage: "trash") {
+                Button(
+                  String(
+                    format: NSLocalizedString("milestone_child_delete", comment: ""),
+                    selected.name ?? "子ども"), systemImage: "trash"
+                ) {
                   // Delay prompt slightly to ensure menu dismissal doesn't conflict
                   DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                     showingDeleteChildAlert = true
                   }
                 }
+                Divider()
               }
-              Button("子どもを追加", systemImage: "person.badge.plus") {
-                // viewModel.selectedChild = nil // We don't need to nil it here if the sheet creates a new one with nil
+              Button("milestone_child_add", systemImage: "person.badge.plus") {
                 showingAddChild = true
               }
             } label: {
               HStack {
-                Text(viewModel.selectedChild?.name ?? "メニュー")
+                Text(viewModel.selectedChild?.name ?? String(localized: "menu"))
                   .fontWeight(.bold)
                 Image(systemName: "chevron.down")
                   .font(.caption)
@@ -55,7 +63,7 @@ struct MilestoneListView: View {
           ToolbarItem(placement: .navigationBarTrailing) {
             Button(action: { showingAddMilestone = true }) {
               HStack(spacing: 4) {
-                Text("記録する")
+                Text("milestone_record_button")
                   .font(.callout)
                   .fontWeight(.medium)
                 Image(systemName: "plus.circle.fill")
@@ -129,26 +137,29 @@ struct MilestoneListView: View {
         }
       } else {
         ContentUnavailableView {
-          Label("子どもを登録してください", systemImage: "person.crop.circle.badge.plus")
+          Label("milestone_empty_title", systemImage: "person.crop.circle.badge.plus")
         } description: {
-          Text("左上のメニューから\n子どもを追加・選択できます")
+          Text("milestone_empty_description")
         }
       }
     }
     .scrollContentBackground(.hidden)
     .softBackground()
     .alert(
-      "\(viewModel.selectedChild?.name ?? "子ども")を削除しますか？", isPresented: $showingDeleteChildAlert
+      String(
+        format: NSLocalizedString("milestone_delete_child_title", comment: ""),
+        viewModel.selectedChild?.name ?? "子ども"),
+      isPresented: $showingDeleteChildAlert
     ) {
-      Button("削除", role: .destructive) {
+      Button("delete", role: .destructive) {
         viewModel.deleteSelectedChild()
         showingDeleteCompletionAlert = true
       }
-      Button("キャンセル", role: .cancel) {}
+      Button("cancel", role: .cancel) {}
     } message: {
-      Text("この操作は取り消せません。登録されている記録も全て削除されます。")
+      Text("milestone_delete_child_message")
     }
-    .alert("削除しました", isPresented: $showingDeleteCompletionAlert) {
+    .alert("milestone_delete_child_completed", isPresented: $showingDeleteCompletionAlert) {
       Button("OK", role: .cancel) {}
     }
   }
