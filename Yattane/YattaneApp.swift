@@ -9,7 +9,7 @@ import CoreData
 import SwiftUI
 
 @main
-struct YattaApp: App {
+struct YattaneApp: App {
   let persistenceController = PersistenceController.shared
 
   var body: some Scene {

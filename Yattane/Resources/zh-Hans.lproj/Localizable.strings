@@ -11,8 +11,8 @@
 "edit" = "编辑";
 "done" = "完成";
 
-// YattaApp
-"app_title" = "太棒了！"; // "Yatta!"
+// YattaneApp
+"app_title" = "太棒了！"; // "Yattane!"
 
 // Tab Bar
 "tab_record" = "记录";
