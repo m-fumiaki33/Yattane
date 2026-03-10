@@ -26,9 +26,9 @@ struct AddMilestoneView: View {
               Text("写真を選択")
             }
           }
-          .onChange(of: viewModel.selectedPhotoItems) { _, newItems in
+          .onChange(of: viewModel.selectedPhotoItems, initial: false) { oldValue, newValue in
             Task {
-              await viewModel.loadPhotos(from: newItems)
+              await viewModel.loadPhotos(from: newValue)
             }
           }
 
