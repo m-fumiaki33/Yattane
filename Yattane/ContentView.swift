@@ -2,6 +2,9 @@ import CoreData
 import SwiftUI
 
 struct ContentView: View {
+  @AppStorage("selectedThemeColor") private var selectedThemeRaw: String = AppThemeColor.orange
+    .rawValue
+
   var body: some View {
     TabView {
       MilestoneListView()
@@ -13,8 +16,14 @@ struct ContentView: View {
         .tabItem {
           Label("カレンダー", systemImage: "calendar")
         }
+
+      SettingsView()
+        .tabItem {
+          Label("設定", systemImage: "gearshape")
+        }
     }
-    .accentColor(Color.softTheme.primaryAction)
+    .accentColor(Color.theme.primary)
+    .id(selectedThemeRaw)  // Force redraw when theme changes
   }
 }
 

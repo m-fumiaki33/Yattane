@@ -4,14 +4,14 @@ struct SoftCardStyle: ViewModifier {
   func body(content: Content) -> some View {
     content
       .padding()
-      .background(Color.softTheme.cardBackground)
+      .background(Color.theme.cardBackground)
       .cornerRadius(16)
       .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
   }
 }
 
 struct SoftButtonStyle: ButtonStyle {
-  var backgroundColor: Color = Color.softTheme.primaryAction
+  var backgroundColor: Color = Color.theme.primary
   var foregroundColor: Color = .white
 
   func makeBody(configuration: Configuration) -> some View {
@@ -33,6 +33,6 @@ extension View {
   }
 
   func softBackground() -> some View {
-    self.background(Color.softTheme.background)
+    self.background(Color.theme.background)
   }
 }
