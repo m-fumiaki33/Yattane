@@ -1,3 +1,4 @@
+import Photos
 import PhotosUI
 import SwiftUI
 
@@ -11,12 +12,38 @@ class AddMilestoneViewModel {
   var showAlert = false
   var errorMessage = ""
 
+  // Photo permission
+  var photoAuthStatus: PHAuthorizationStatus = .notDetermined
+  var showPermissionDeniedAlert = false
+
   private let repository: MilestoneRepositoryProtocol
   private let child: Child
 
   init(child: Child, repository: MilestoneRepositoryProtocol = MilestoneRepository()) {
     self.child = child
     self.repository = repository
+    self.photoAuthStatus = PHPhotoLibrary.authorizationStatus(for: .readWrite)
+  }
+
+  /// 写真ボタンタップ時に呼ぶ。許可済みならtrue、未許可→リクエスト、拒否済みならアラートを出す
+  @MainActor
+  func requestPhotoAccessIfNeeded() async -> Bool {
+    let status = PHPhotoLibrary.authorizationStatus(for: .readWrite)
+    switch status {
+    case .authorized, .limited:
+      photoAuthStatus = status
+      return true
+    case .notDetermined:
+      let granted = await PHPhotoLibrary.requestAuthorization(for: .readWrite)
+      photoAuthStatus = granted
+      return granted == .authorized || granted == .limited
+    case .denied, .restricted:
+      photoAuthStatus = status
+      showPermissionDeniedAlert = true
+      return false
+    @unknown default:
+      return false
+    }
   }
 
   func save() -> Bool {
@@ -54,3 +81,4 @@ class AddMilestoneViewModel {
     }
   }
 }
+

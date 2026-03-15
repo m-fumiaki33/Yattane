@@ -6,5 +6,7 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>お子さまの成長記録に写真を追加するために、フォトライブラリへのアクセスが必要です。</string>
 </dict>
 </plist>

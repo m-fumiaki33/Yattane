@@ -21,6 +21,17 @@ struct MilestoneListView: View {
     return children.first
   }
 
+  // Display name with honorific based on gender
+  private var displayName: String {
+    guard let child = activeChild else { return "子ども" }
+    let name = child.name ?? "子ども"
+    switch child.gender {
+    case 1: return "\(name)くん"   // 男の子
+    case 2: return "\(name)ちゃん" // 女の子
+    default: return name           // 未選択・その他
+    }
+  }
+
   // Calculate age string like "生後6ヶ月"
   private var ageString: String {
     guard let child = activeChild, let birthday = child.birthday else { return "生年月日未設定" }
@@ -165,7 +176,7 @@ struct MilestoneListView: View {
     VStack(spacing: 16) {
       HStack(alignment: .top) {
         VStack(alignment: .leading, spacing: 4) {
-          Text("\(activeChild?.name ?? "子ども")ちゃんの成長記録")
+          Text("\(displayName)の成長記録")
             .font(.title2)
             .fontWeight(.bold)
             .foregroundColor(.white)
